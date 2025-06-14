@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://drcw366quog7f"]
 
 [ext_resource type="Texture2D" uid="uid://ty70kr52kpjn" path="res://Assets/Textures/fancy_millhouse.png" id="1_5lcdv"]
-[ext_resource type="Script" uid="uid://cn7g6pd2pc61l" path="res://Scripts/magical_windmill.gd" id="1_38n6p"]
+[ext_resource type="Script" path="res://Scripts/magical_windmill.gd" id="1_38n6p"]
 [ext_resource type="Texture2D" uid="uid://ldrxljqaa2lx" path="res://Assets/Textures/fancy_windmill_rotors.png" id="2_38n6p"]
 
 [sub_resource type="Animation" id="Animation_m0tfv"]
