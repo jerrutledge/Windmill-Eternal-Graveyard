@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://bn0tg14mi6tgw"]
+[gd_scene load_steps=12 format=4 uid="uid://bn0tg14mi6tgw"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_rrp7e"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/MagicalWindmill.tscn" id="5_c053b"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_gwumf"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="6_0axde"]
 [ext_resource type="PackedScene" uid="uid://bi0n7l4o3nbwc" path="res://Scenes/Prefabs/windmill_prefab.tscn" id="6_fi0cj"]
@@ -35,6 +36,7 @@ sources/0 = SubResource("TileSetAtlasSource_gs0qk")
 [node name="Level_01" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 offset_left = -204.0
 offset_top = -2163.0
 offset_right = 820.0
@@ -109,6 +111,10 @@ position = Vector2(474, -1405)
 rotation = 3.14159
 scale = Vector2(0.8, -0.8)
 speed = 1.2
+
+[node name="MagicalWindmill" parent="Windmills" instance=ExtResource("5_c053b")]
+position = Vector2(132, -1947)
+scale = Vector2(2.51717, 2.18906)
 
 [node name="Level" type="Node2D" parent="."]
 
