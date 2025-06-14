@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://37qjeorhqj0v"]
+[gd_scene load_steps=9 format=3 uid="uid://37qjeorhqj0v"]
 
 [ext_resource type="Script" uid="uid://bxa88gpoj057t" path="res://Scripts/windmill.gd" id="1_djbql"]
 
@@ -13,6 +13,43 @@ size = Vector2(152, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qj32"]
 size = Vector2(48, 139)
+
+[sub_resource type="Animation" id="Animation_djbql"]
+resource_name = "rotor"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_678yx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e437d"]
+_data = {
+&"RESET": SubResource("Animation_678yx"),
+&"rotor": SubResource("Animation_djbql")
+}
 
 [node name="Windmill" type="Node2D"]
 script = ExtResource("1_djbql")
@@ -41,3 +78,6 @@ position = Vector2(15, -69.5)
 shape = SubResource("RectangleShape2D_2qj32")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e437d")
+}
