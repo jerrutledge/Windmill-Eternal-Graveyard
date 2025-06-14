@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=4 uid="uid://bn0tg14mi6tgw"]
+
+[ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_rrp7e"]
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_gwumf"]
+[ext_resource type="Script" uid="uid://g6oa1rfikatd" path="res://Scripts/GameManager.gd" id="7_kjypy"]
+[ext_resource type="Script" uid="uid://domyi75bwl5ad" path="res://Scripts/GameUI.gd" id="8_36dgh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
+texture = ExtResource("5_gwumf")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 16, -32, 16)
+0:2/0/physics_layer_0/polygon_0/one_way = true
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 0, -32, 0)
+4:0/0 = 0
+4:1/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+2:5/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_ywwrl"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gs0qk")
+
+[node name="Level_01" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("3_rrp7e")]
+z_index = 1
+position = Vector2(150, 2000)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(16, 36)
+limit_left = 0
+limit_bottom = 2102
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.4
+drag_top_margin = 0.4
+drag_right_margin = 0.4
+drag_bottom_margin = 0.4
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMapLayer" parent="Level"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD//woAAAADAAAAAAD//wkAAAADAAAAAAD//wgAAAADAAAAAAD//wcAAAADAAAAAAD//wYAAAADAAAAAAD//wUAAAADAAAAAAD//wQAAAADAAAAAAD//wMAAAADAAAAAAD//wIAAAADAAAAAAD//wEAAAADAAAAAAD//wAAAAADAAAAAAAIAAAAAAADAAAAAAAIAAEAAAADAAAAAAAIAAIAAAADAAAAAAAIAAMAAAADAAAAAAAIAAQAAAADAAAAAAAIAAUAAAADAAAAAAAIAAYAAAADAAAAAAAIAAcAAAADAAAAAAAIAAgAAAADAAAAAAAIAAkAAAADAAAAAAAIAAoAAAADAAAAAAAIAAsAAAADAAAAAAAIAAwAAAADAAAAAAAIAA0AAAADAAAAAAAIAA4AAAADAAAAAAAIAA8AAAADAAAAAAAIABAAAAADAAAAAAD//wsAAAADAAAAAAD//wwAAAADAAAAAAD//w0AAAADAAAAAAD//w4AAAADAAAAAAD//w8AAAADAAAAAAD//xAAAAADAAAAAAD//xEAAAADAAAAAAD//xIAAAADAAAAAAD//xMAAAADAAAAAAD//xQAAAADAAAAAAD//xUAAAADAAAAAAD//xYAAAADAAAAAAD//xcAAAADAAAAAAD//xgAAAADAAAAAAD//xkAAAADAAAAAAD//xoAAAADAAAAAAD//xsAAAADAAAAAAD//xwAAAADAAAAAAD//x0AAAADAAAAAAD//x4AAAADAAAAAAD//x8AAAADAAAAAAD//yAAAAADAAAAAAAAACAAAAAAAAAAAAABACAAAAAAAAAAAAACACAAAAAAAAAAAAADACAAAAAAAAAAAAAEACAAAAAAAAAAAAAFACAAAAAAAAAAAAAIABEAAAADAAAAAAAIABIAAAADAAAAAAAIABMAAAADAAAAAAAIABQAAAADAAAAAAAIABUAAAADAAAAAAAIABYAAAADAAAAAAAIABcAAAADAAAAAAAIABgAAAADAAAAAAAIABkAAAADAAAAAAAIABoAAAADAAAAAAAIABsAAAADAAAAAAAIABwAAAADAAAAAAAIAB0AAAADAAAAAAAIAB4AAAADAAAAAAAIAB8AAAADAAAAAAAIACAAAAADAAAAAAAGACAAAAAAAAAAAAAHACAAAAAAAAAAAAD//yEAAAADAAAAAAAAACEAAAADAAAAAAABACEAAAADAAAAAAACACEAAAADAAAAAAADACEAAAADAAAAAAAEACEAAAADAAAAAAAFACEAAAADAAAAAAAGACEAAAADAAAAAAAHACEAAAADAAAAAAAIACEAAAADAAAAAAA=")
+tile_set = SubResource("TileSet_ywwrl")
+
+[node name="SpawnPoint" type="Marker2D" parent="Level"]
+unique_name_in_owner = true
+position = Vector2(174, 2000)
+
+[node name="TutorialText" type="Node2D" parent="."]
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("7_kjypy")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="GameUI" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_36dgh")
