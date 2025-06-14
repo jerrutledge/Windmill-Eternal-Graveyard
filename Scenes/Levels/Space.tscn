@@ -96,3 +96,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_36dgh")
+
+[node name="TopText" type="Node2D" parent="."]
+
+[node name="Movement3" type="Label" parent="TopText"]
+offset_left = 5.0
+offset_top = -1879.0
+offset_right = 505.0
+offset_bottom = -1795.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_0axde")
+theme_override_font_sizes/font_size = 30
+text = "You must learn to let go, my love"
+horizontal_alignment = 1
