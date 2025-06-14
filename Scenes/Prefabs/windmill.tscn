@@ -1,35 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://37qjeorhqj0v"]
+[gd_scene load_steps=6 format=3 uid="uid://37qjeorhqj0v"]
+
+[ext_resource type="Script" uid="uid://bxa88gpoj057t" path="res://Scripts/windmill.gd" id="1_djbql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1obrl"]
 size = Vector2(141, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi0cj"]
-size = Vector2(48, 150)
+size = Vector2(49, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mre42"]
 size = Vector2(152, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qj32"]
-size = Vector2(46, 138)
+size = Vector2(48, 139)
 
-[node name="Windmill" type="CharacterBody2D"]
+[node name="Windmill" type="Node2D"]
+script = ExtResource("1_djbql")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Rotor" type="CharacterBody2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotor"]
 scale = Vector2(10, 10)
 texture = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotor"]
 position = Vector2(70.5, 25)
 shape = SubResource("RectangleShape2D_1obrl")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-24, 75)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Rotor"]
+position = Vector2(-24.5, 75)
 shape = SubResource("RectangleShape2D_fi0cj")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Rotor"]
 position = Vector2(-76, -15.5)
 shape = SubResource("RectangleShape2D_mre42")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(14, -69)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Rotor"]
+position = Vector2(15, -69.5)
 shape = SubResource("RectangleShape2D_2qj32")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
