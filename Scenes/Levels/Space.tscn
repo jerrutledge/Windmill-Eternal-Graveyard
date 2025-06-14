@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://bn0tg14mi6tgw"]
+[gd_scene load_steps=11 format=4 uid="uid://bn0tg14mi6tgw"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_rrp7e"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/MagicalWindmill.tscn" id="5_c053b"]
+[ext_resource type="PackedScene" uid="uid://drcw366quog7f" path="res://Scenes/Prefabs/MagicalWindmill.tscn" id="5_c053b"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_gwumf"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="6_0axde"]
 [ext_resource type="PackedScene" uid="uid://bi0n7l4o3nbwc" path="res://Scenes/Prefabs/windmill_prefab.tscn" id="6_fi0cj"]
 [ext_resource type="Script" uid="uid://g6oa1rfikatd" path="res://Scripts/GameManager.gd" id="7_kjypy"]
-[ext_resource type="Texture2D" uid="uid://cfvmdmm8hiau4" path="res://Assets/Textures/windmill_rotor_white.png" id="7_mre42"]
 [ext_resource type="Texture2D" uid="uid://cmsa64es61n40" path="res://Assets/Textures/background_sky_gradient.png" id="8_2qj32"]
 [ext_resource type="Script" uid="uid://domyi75bwl5ad" path="res://Scripts/GameUI.gd" id="8_36dgh"]
 
@@ -86,9 +85,14 @@ scale = Vector2(0.8, 0.8)
 speed = 1.2
 
 [node name="Windmill9" parent="Windmills" instance=ExtResource("6_fi0cj")]
-position = Vector2(72, -1566)
-scale = Vector2(0.8, 0.8)
-speed = 1.5
+position = Vector2(70, -1594)
+scale = Vector2(0.4, 0.4)
+speed = 1.7
+
+[node name="Windmill11" parent="Windmills" instance=ExtResource("6_fi0cj")]
+position = Vector2(162, -1419)
+scale = Vector2(0.4, 0.4)
+speed = 1.7
 
 [node name="Windmill6" parent="Windmills" instance=ExtResource("6_fi0cj")]
 position = Vector2(397, -914)
@@ -104,13 +108,6 @@ speed = 1.2
 position = Vector2(554, -1699)
 scale = Vector2(2.5, 2.5)
 speed = 0.1
-sprite = ExtResource("7_mre42")
-
-[node name="Windmill8" parent="Windmills" instance=ExtResource("6_fi0cj")]
-position = Vector2(474, -1405)
-rotation = 3.14159
-scale = Vector2(0.8, -0.8)
-speed = 1.2
 
 [node name="MagicalWindmill" parent="Windmills" instance=ExtResource("5_c053b")]
 position = Vector2(132, -1947)
