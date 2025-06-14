@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://bn0tg14mi6tgw"]
+[gd_scene load_steps=8 format=4 uid="uid://bn0tg14mi6tgw"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_rrp7e"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_gwumf"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="6_0axde"]
-[ext_resource type="PackedScene" uid="uid://37qjeorhqj0v" path="res://Scenes/Prefabs/windmill.tscn" id="6_fi0cj"]
 [ext_resource type="Script" uid="uid://g6oa1rfikatd" path="res://Scripts/GameManager.gd" id="7_kjypy"]
 [ext_resource type="Script" uid="uid://domyi75bwl5ad" path="res://Scripts/GameUI.gd" id="8_36dgh"]
 
@@ -112,6 +111,3 @@ text = "You must learn to let go, my love"
 horizontal_alignment = 1
 
 [node name="Windmills" type="Node2D" parent="."]
-
-[node name="Windmill" parent="Windmills" instance=ExtResource("6_fi0cj")]
-position = Vector2(73, -461)
