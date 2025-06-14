@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://drcw366quog7f"]
+
+[ext_resource type="Texture2D" uid="uid://ty70kr52kpjn" path="res://Assets/Textures/fancy_millhouse.png" id="1_5lcdv"]
+[ext_resource type="Texture2D" uid="uid://ldrxljqaa2lx" path="res://Assets/Textures/fancy_windmill_rotors.png" id="2_38n6p"]
+
+[sub_resource type="Animation" id="Animation_81jjp"]
+resource_name = "rotate"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FancyWindmillRotors:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_m0tfv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FancyWindmillRotors:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtryd"]
+_data = {
+&"RESET": SubResource("Animation_m0tfv"),
+&"rotate": SubResource("Animation_81jjp")
+}
+
+[node name="MagicalWindmill" type="Node2D"]
+
+[node name="FancyMillhouse" type="Sprite2D" parent="."]
+texture = ExtResource("1_5lcdv")
+
+[node name="FancyWindmillRotors" type="Sprite2D" parent="."]
+position = Vector2(0.9, -27)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_38n6p")
+offset = Vector2(0.5, 1.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gtryd")
+}
