@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bn0tg14mi6tgw"]
+[gd_scene load_steps=11 format=4 uid="uid://bn0tg14mi6tgw"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_rrp7e"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_gwumf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bi0n7l4o3nbwc" path="res://Scenes/Prefabs/windmill_prefab.tscn" id="6_fi0cj"]
 [ext_resource type="Script" uid="uid://g6oa1rfikatd" path="res://Scripts/GameManager.gd" id="7_kjypy"]
 [ext_resource type="Texture2D" uid="uid://cfvmdmm8hiau4" path="res://Assets/Textures/windmill_rotor_white.png" id="7_mre42"]
+[ext_resource type="Texture2D" uid="uid://cmsa64es61n40" path="res://Assets/Textures/background_sky_gradient.png" id="8_2qj32"]
 [ext_resource type="Script" uid="uid://domyi75bwl5ad" path="res://Scripts/GameUI.gd" id="8_36dgh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
@@ -32,6 +33,13 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gs0qk")
 
 [node name="Level_01" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -204.0
+offset_top = -2163.0
+offset_right = 820.0
+offset_bottom = 62.0
+texture = ExtResource("8_2qj32")
 
 [node name="Player" parent="." instance=ExtResource("3_rrp7e")]
 z_index = 1
