@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://37qjeorhqj0v"]
+[gd_scene load_steps=10 format=3 uid="uid://bi0n7l4o3nbwc"]
 
-[ext_resource type="Script" uid="uid://bxa88gpoj057t" path="res://Scripts/windmill.gd" id="1_djbql"]
+[ext_resource type="Script" uid="uid://bxa88gpoj057t" path="res://Scripts/windmill.gd" id="1_b7dde"]
+[ext_resource type="Texture2D" uid="uid://bixr4aw2kld1b" path="res://Assets/Textures/windmill_rotor_see_thru.png" id="2_mpivu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1obrl"]
 size = Vector2(141, 50)
@@ -17,6 +18,7 @@ size = Vector2(48, 139)
 [sub_resource type="Animation" id="Animation_djbql"]
 resource_name = "rotor"
 length = 4.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -52,7 +54,8 @@ _data = {
 }
 
 [node name="Windmill" type="Node2D"]
-script = ExtResource("1_djbql")
+script = ExtResource("1_b7dde")
+sprite = ExtResource("2_mpivu")
 
 [node name="Rotor" type="CharacterBody2D" parent="."]
 scale = Vector2(1, 1)
