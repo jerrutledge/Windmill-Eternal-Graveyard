@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bi0n7l4o3nbwc"]
+[gd_scene load_steps=11 format=3 uid="uid://bi0n7l4o3nbwc"]
 
 [ext_resource type="Script" uid="uid://bxa88gpoj057t" path="res://Scripts/windmill.gd" id="1_b7dde"]
 [ext_resource type="Texture2D" uid="uid://bixr4aw2kld1b" path="res://Assets/Textures/windmill_rotor_see_thru.png" id="2_mpivu"]
+[ext_resource type="Texture2D" uid="uid://hxp3t53a5v86" path="res://Assets/millhouse.png" id="3_3nc81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1obrl"]
 size = Vector2(141, 50)
@@ -14,6 +15,21 @@ size = Vector2(152, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qj32"]
 size = Vector2(48, 139)
+
+[sub_resource type="Animation" id="Animation_678yx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_djbql"]
 resource_name = "rotor"
@@ -32,21 +48,6 @@ tracks/0/keys = {
 "values": [0.0, 3.14159, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_678yx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rotor:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e437d"]
 _data = {
 &"RESET": SubResource("Animation_678yx"),
@@ -57,12 +58,16 @@ _data = {
 script = ExtResource("1_b7dde")
 sprite = ExtResource("2_mpivu")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.619608)
+position = Vector2(-4, 95)
+scale = Vector2(7, 7)
+texture = ExtResource("3_3nc81")
+
 [node name="Rotor" type="CharacterBody2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotor"]
 scale = Vector2(10, 10)
-texture = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotor"]
 position = Vector2(70.5, 25)
